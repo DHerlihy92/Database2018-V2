@@ -153,13 +153,13 @@ namespace PokeTrumps
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("getValidEmail", emailParameter);
         }
     
-        public virtual int getValidTName(string tName)
+        public virtual ObjectResult<string> getValidTName(string trainerName)
         {
-            var tNameParameter = tName != null ?
-                new ObjectParameter("TName", tName) :
-                new ObjectParameter("TName", typeof(string));
+            var trainerNameParameter = trainerName != null ?
+                new ObjectParameter("TrainerName", trainerName) :
+                new ObjectParameter("TrainerName", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("getValidTName", tNameParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("getValidTName", trainerNameParameter);
         }
     
         public virtual int initiateBattle(Nullable<short> trainerID1, Nullable<short> trainerID2, Nullable<short> battleID)

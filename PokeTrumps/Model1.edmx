@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="PokemonModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="PokemonModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Battle">
           <Key>
             <PropertyRef Name="BattleID" />
@@ -154,16 +154,6 @@ warning 6002: The table/view 'Pokemon.dbo.view_round' does not have a primary ke
           <Property Name="StatChosen" Type="nchar" MaxLength="15" Nullable="false" />
           <Property Name="WinnerID" Type="smallint" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'Pokemon.dbo.view_Trainer1WinCheck' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="view_Trainer1WinCheck">
-          <Property Name="Rounds_Won" Type="int" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'Pokemon.dbo.view_Trainer2WinCheck' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="view_Trainer2WinCheck">
-          <Property Name="Rounds_Won" Type="int" />
-        </EntityType>-->
         <Association Name="FK_Battle_Trainer">
           <End Role="Trainer" Type="Self.Trainer" Multiplicity="0..1" />
           <End Role="Battle" Type="Self.Battle" Multiplicity="*" />
@@ -285,7 +275,7 @@ warning 6013: The table/view 'Pokemon.dbo.view_Trainer2WinCheck' does not have a
           <Parameter Name="Email" Type="varchar" Mode="In" />
         </Function>
         <Function Name="getValidTName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="TName" Type="varchar" Mode="In" />
+          <Parameter Name="TrainerName" Type="varchar" Mode="In" />
         </Function>
         <Function Name="initiateBattle" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="TrainerID1" Type="smallint" Mode="In" />
@@ -431,8 +421,7 @@ warning 6013: The table/view 'Pokemon.dbo.view_Trainer2WinCheck' does not have a
             <End Role="TrainerPokemon" EntitySet="TrainerPokemon" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="PokemonModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -724,10 +713,10 @@ warning 6013: The table/view 'Pokemon.dbo.view_Trainer2WinCheck' does not have a
             <Parameter Name="BattleID" Mode="In" Type="Int16" />
           </FunctionImport>
           <FunctionImport Name="checkFivePokemon">
-            <Parameter Name="trainerID" Mode="In" Type="Int32" />
+          <Parameter Name="trainerID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="choosePokemon">
-            <Parameter Name="TrainerID" Mode="In" Type="Int16" />
+          <Parameter Name="TrainerID" Mode="In" Type="Int16" />
           </FunctionImport>
           <FunctionImport Name="flipCoin" />
           <FunctionImport Name="getEnemyStat">
@@ -735,7 +724,7 @@ warning 6013: The table/view 'Pokemon.dbo.view_Trainer2WinCheck' does not have a
             <Parameter Name="Trainer2PokemonID" Mode="In" Type="Int16" />
           </FunctionImport>
           <FunctionImport Name="getNewPokemon">
-            <Parameter Name="TrainerID" Mode="In" Type="Int16" />
+          <Parameter Name="TrainerID" Mode="In" Type="Int16" />
           </FunctionImport>
           <FunctionImport Name="getRoundWinner">
             <Parameter Name="Stat1" Mode="In" Type="Int16" />
@@ -748,10 +737,10 @@ warning 6013: The table/view 'Pokemon.dbo.view_Trainer2WinCheck' does not have a
             <Parameter Name="Trainer2PokemonID" Mode="In" Type="Int16" />
           </FunctionImport>
           <FunctionImport Name="getValidEmail">
-            <Parameter Name="Email" Mode="In" Type="String" />
+          <Parameter Name="Email" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="getValidTName">
-            <Parameter Name="TName" Mode="In" Type="String" />
+          <FunctionImport Name="getValidTName" ReturnType="Collection(String)">
+          <Parameter Name="TrainerName" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="initiateBattle">
             <Parameter Name="TrainerID1" Mode="In" Type="Int16" />
@@ -770,13 +759,13 @@ warning 6013: The table/view 'Pokemon.dbo.view_Trainer2WinCheck' does not have a
             <Parameter Name="WinnerID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="LoadPokemonImage">
-            <Parameter Name="PokemonName" Mode="In" Type="String" />
+          <Parameter Name="PokemonName" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="maxFavourites">
-            <Parameter Name="trainerID" Mode="In" Type="Int32" />
+          <Parameter Name="trainerID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="maxRounds">
-            <Parameter Name="BattleID" Mode="In" Type="Int32" />
+          <Parameter Name="BattleID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="removeFavourate">
             <Parameter Name="TrainerID" Mode="In" Type="Int16" />

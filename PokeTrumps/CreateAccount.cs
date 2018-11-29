@@ -34,16 +34,16 @@ namespace PokeTrumps
         {
             using (PokemonEntities context = new PokemonEntities())
             {
-                int check;
+                string check;
 
-                check = context.getValidTName(tbUsername.Text);
-
-                if (check == 1)
+                dataGridView1.DataSource= context.getValidTName(tbUsername.Text);
+                //MessageBox.Show(check);
+               /* if (check >= 1)
                 {
                     MessageBox.Show("This username already exists");
                     return;
                     tbUsername.Focus();
-                }
+                }*/
 
                 var max = context.Trainers.DefaultIfEmpty().Max(r => r == null ? 0 : r.TrainerID);
                 max = Convert.ToInt16(max) + 1;
@@ -68,6 +68,7 @@ namespace PokeTrumps
                     context.SaveChanges();
                 }
 
+                MessageBox.Show("You did it...well done kid!");
             }
         }
     }

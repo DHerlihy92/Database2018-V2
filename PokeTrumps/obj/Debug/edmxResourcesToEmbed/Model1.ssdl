@@ -149,16 +149,6 @@ warning 6002: The table/view 'Pokemon.dbo.view_round' does not have a primary ke
     <Property Name="StatChosen" Type="nchar" MaxLength="15" Nullable="false" />
     <Property Name="WinnerID" Type="smallint" Nullable="false" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6013: The table/view 'Pokemon.dbo.view_Trainer1WinCheck' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="view_Trainer1WinCheck">
-          <Property Name="Rounds_Won" Type="int" />
-        </EntityType>-->
-  <!--Errors Found During Generation:
-warning 6013: The table/view 'Pokemon.dbo.view_Trainer2WinCheck' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="view_Trainer2WinCheck">
-          <Property Name="Rounds_Won" Type="int" />
-        </EntityType>-->
   <Association Name="FK_Battle_Trainer">
     <End Role="Trainer" Type="Self.Trainer" Multiplicity="0..1" />
     <End Role="Battle" Type="Self.Battle" Multiplicity="*" />
@@ -280,7 +270,7 @@ warning 6013: The table/view 'Pokemon.dbo.view_Trainer2WinCheck' does not have a
     <Parameter Name="Email" Type="varchar" Mode="In" />
   </Function>
   <Function Name="getValidTName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="TName" Type="varchar" Mode="In" />
+    <Parameter Name="TrainerName" Type="varchar" Mode="In" />
   </Function>
   <Function Name="initiateBattle" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="TrainerID1" Type="smallint" Mode="In" />
