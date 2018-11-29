@@ -32,18 +32,42 @@ namespace PokeTrumps
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
-            using(PokemonEntities context = new PokemonEntities())
+            using (PokemonEntities context = new PokemonEntities())
             {
+                int check;
+
+                check = context.getValidTName(tbUsername.Text);
+
+                if (check == 1)
+                {
+                    MessageBox.Show("This username already exists");
+                    return;
+                    tbUsername.Focus();
+                }
+
+                var max = context.Trainers.DefaultIfEmpty().Max(r => r == null ? 0 : r.TrainerID);
+                max = Convert.ToInt16(max) + 1;
+
+                short NextID = Convert.ToInt16(max);
+
                 Trainer trainer = new Trainer
                 {
+                    TrainerID = NextID,
                     TName = tbUsername.Text,
                     Password = tbPassword.Text,
                     Email = tbEmail.Text,
-                    CreationDate= DateTime.Now
+                    CreationDate = DateTime.Now
                 };
 
                 context.Trainers.Add(trainer);
                 context.SaveChanges();
+
+                for (int i = 0; i < 5; i++)
+                {
+                    context.getNewPokemon(NextID);
+                    context.SaveChanges();
+                }
+
             }
         }
     }
