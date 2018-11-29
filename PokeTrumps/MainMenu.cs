@@ -25,8 +25,22 @@ namespace PokeTrumps
         private void btnCreateAcc_Click(object sender, EventArgs e)
         {
             this.Hide();
-            CreateAccount acc = new CreateAccount(this);
-            acc.Show();
+            CreateAccount nextForm = new CreateAccount(this);
+            nextForm.Show();
+        }
+
+        private void btnViewPokemon_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ViewPokemon nextForm = new ViewPokemon(this);
+            nextForm.Show();
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Login nextForm = new Login(this);
+            nextForm.Show();
         }
     }
 }

@@ -29,5 +29,22 @@ namespace PokeTrumps
             this.Close();
             parent.Show();
         }
+
+        private void btnConfirm_Click(object sender, EventArgs e)
+        {
+            using(PokemonEntities context = new PokemonEntities())
+            {
+                Trainer trainer = new Trainer
+                {
+                    TName = tbUsername.Text,
+                    Password = tbPassword.Text,
+                    Email = tbEmail.Text,
+                    CreationDate= DateTime.Now
+                };
+
+                context.Trainers.Add(trainer);
+                context.SaveChanges();
+            }
+        }
     }
 }
