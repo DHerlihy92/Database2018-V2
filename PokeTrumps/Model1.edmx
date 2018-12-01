@@ -275,7 +275,7 @@ warning 6002: The table/view 'Pokemon.dbo.view_round' does not have a primary ke
           <Parameter Name="Email" Type="varchar" Mode="In" />
         </Function>
         <Function Name="getValidTName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="TrainerName" Type="varchar" Mode="In" />
+          <Parameter Name="TName" Type="varchar" Mode="In" />
         </Function>
         <Function Name="initiateBattle" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="TrainerID1" Type="smallint" Mode="In" />
@@ -740,7 +740,7 @@ warning 6002: The table/view 'Pokemon.dbo.view_round' does not have a primary ke
           <Parameter Name="Email" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="getValidTName" ReturnType="Collection(String)">
-          <Parameter Name="TrainerName" Mode="In" Type="String" />
+          <Parameter Name="TName" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="initiateBattle">
             <Parameter Name="TrainerID1" Mode="In" Type="Int16" />

@@ -315,7 +315,7 @@
       <Parameter Name="Email" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="getValidTName" ReturnType="Collection(String)">
-      <Parameter Name="TrainerName" Mode="In" Type="String" />
+      <Parameter Name="TName" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="initiateBattle">
       <Parameter Name="TrainerID1" Mode="In" Type="Int16" />
