@@ -52,3 +52,4 @@ C:\Users\t00196758\Documents\GitHub\Database2018-V2\PokeTrumps\obj\Debug\PokeTru
 C:\Users\t00196758\Documents\GitHub\Database2018-V2\PokeTrumps\obj\Debug\PokeTrumps.csproj.CopyComplete
 C:\Users\t00196758\Documents\GitHub\Database2018-V2\PokeTrumps\obj\Debug\PokeTrumps.exe
 C:\Users\t00196758\Documents\GitHub\Database2018-V2\PokeTrumps\obj\Debug\PokeTrumps.pdb
+C:\Users\t00196758\Documents\GitHub\Database2018-V2\PokeTrumps\obj\Debug\PokeTrumps.ViewTeam.resources

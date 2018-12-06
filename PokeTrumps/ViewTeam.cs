@@ -27,6 +27,7 @@ namespace PokeTrumps
             parent = Parent;
         }
 
+
         private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -37,11 +38,23 @@ namespace PokeTrumps
         {
             using (PokemonEntities context = new PokemonEntities())
             {
-               
-                /*dataGridView1.DataSource = (from TrainerPokemon in PokemonEntities
-                                            join Pokemon in PokemonEntities
-                                            on Pokemon.PokemonID equals TrainerPokemon.PokemonID
-                                            where Tr)*/
+                
+
+
+                 
+                    var result = (from t in context.TrainerPokemons
+                            join p in context.Pokemons on t.PokemonID equals p.PokemonID
+                            where t.TrainerID == 77 && t.Team == true
+                            select new { t.PokemonID, p.Name, p.Attack, p.Defence, p.SpecialAttack, p.SpecialDefence, p.Speed, p.Image }).ToList();
+
+                dataGridView1.DataSource = result;
+
+                var result2 = (from t in context.TrainerPokemons
+                                            join p in context.Pokemons on t.PokemonID equals p.PokemonID
+                                            where t.TrainerID == 77 && t.Team == false
+                                            select new { t.PokemonID, p.Name, p.Attack, p.Defence, p.SpecialAttack, p.SpecialDefence, p.Speed, p.Image }).ToList();
+
+                dataGridView2.DataSource = result2;
 
             }
         }

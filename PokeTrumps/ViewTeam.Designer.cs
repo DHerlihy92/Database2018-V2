@@ -42,6 +42,7 @@
             this.pokemonBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.pokemonTableAdapter1 = new PokeTrumps.PokemonDataSet1TableAdapters.PokemonTableAdapter();
             this.pokemonBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pokemonBindingSource)).BeginInit();
@@ -51,6 +52,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.trainerPokemonBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pokemonBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pokemonBindingSource2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -125,11 +127,20 @@
             this.pokemonBindingSource2.DataMember = "Pokemon";
             this.pokemonBindingSource2.DataSource = this.pokemonDataSet1BindingSource;
             // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(69, 258);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.Size = new System.Drawing.Size(909, 150);
+            this.dataGridView2.TabIndex = 2;
+            // 
             // ViewTeam
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1208, 450);
+            this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -146,6 +157,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.trainerPokemonBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pokemonBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pokemonBindingSource2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -166,5 +178,6 @@
         private System.Windows.Forms.BindingSource pokemonBindingSource1;
         private PokemonDataSet1TableAdapters.PokemonTableAdapter pokemonTableAdapter1;
         private System.Windows.Forms.BindingSource pokemonBindingSource2;
+        private System.Windows.Forms.DataGridView dataGridView2;
     }
 }
