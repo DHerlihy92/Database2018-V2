@@ -21,7 +21,7 @@ namespace PokeTrumps
         public CreateAccount(MainMenu Parent)
         {
             InitializeComponent();
-            parent = Parent; 
+            parent = Parent;
         }
 
         private void mnuBack_Click(object sender, EventArgs e)
@@ -35,15 +35,6 @@ namespace PokeTrumps
             using (PokemonEntities context = new PokemonEntities())
             {
                 string check;
-
-                dataGridView1.DataSource= context.getValidTName(tbUsername.Text);
-                //MessageBox.Show(check);
-               /* if (check >= 1)
-                {
-                    MessageBox.Show("This username already exists");
-                    return;
-                    tbUsername.Focus();
-                }*/
 
                 var max = context.Trainers.DefaultIfEmpty().Max(r => r == null ? 0 : r.TrainerID);
                 max = Convert.ToInt16(max) + 1;
@@ -69,6 +60,9 @@ namespace PokeTrumps
                 }
 
                 MessageBox.Show("You did it...well done kid!");
+                this.Hide();
+                var nextForm = new ViewTeam(NextID, parent);      
+                nextForm.Show(); 
             }
         }
     }

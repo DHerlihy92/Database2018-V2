@@ -43,6 +43,7 @@
             this.pokemonTableAdapter1 = new PokeTrumps.PokemonDataSet1TableAdapters.PokemonTableAdapter();
             this.pokemonBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.btnUpdate = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pokemonBindingSource)).BeginInit();
@@ -61,7 +62,7 @@
             this.logOutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1208, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1072, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -75,10 +76,11 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(69, 88);
+            this.dataGridView1.Location = new System.Drawing.Point(84, 27);
             this.dataGridView1.MinimumSize = new System.Drawing.Size(0, 100);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(909, 150);
+            this.dataGridView1.RowTemplate.Height = 75;
+            this.dataGridView1.Size = new System.Drawing.Size(909, 216);
             this.dataGridView1.TabIndex = 1;
             // 
             // pokemonBindingSource
@@ -131,16 +133,28 @@
             // dataGridView2
             // 
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(69, 258);
+            this.dataGridView2.Location = new System.Drawing.Point(84, 264);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(909, 150);
+            this.dataGridView2.RowTemplate.Height = 75;
+            this.dataGridView2.Size = new System.Drawing.Size(909, 244);
             this.dataGridView2.TabIndex = 2;
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Location = new System.Drawing.Point(491, 514);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(94, 23);
+            this.btnUpdate.TabIndex = 3;
+            this.btnUpdate.Text = "Update Team";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // ViewTeam
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1208, 450);
+            this.ClientSize = new System.Drawing.Size(1072, 559);
+            this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.menuStrip1);
@@ -180,5 +194,6 @@
         private PokemonDataSet1TableAdapters.PokemonTableAdapter pokemonTableAdapter1;
         private System.Windows.Forms.BindingSource pokemonBindingSource2;
         private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.Button btnUpdate;
     }
 }

@@ -58,9 +58,8 @@ namespace PokeTrumps
 
                         short trainerID = Convert.ToInt16(dataGridView1.Rows[0].Cells[0].Value);
                         this.Hide();
-                        var form2 = new ViewTeam(trainerID, this);
-                        form2.Closed += (s, args) => this.Close();
-                        form2.Show();
+                        var nextForm = new ViewTeam(trainerID, parent);
+                        nextForm.Show();
                     }
                 }
                 else
