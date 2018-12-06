@@ -12,15 +12,15 @@ namespace PokeTrumps
 {
     public partial class ViewTeam : Form
     {
-        MainMenu parent;
-        int trainerID;
+        Login parent;
+        short trainerID;
 
         public ViewTeam()
         {
             InitializeComponent();
         }
 
-        public ViewTeam(int TrainerID, MainMenu Parent)
+        public ViewTeam(short TrainerID, Login Parent)
         {
             InitializeComponent();
             trainerID = TrainerID;
@@ -44,15 +44,15 @@ namespace PokeTrumps
                  
                     var result = (from t in context.TrainerPokemons
                             join p in context.Pokemons on t.PokemonID equals p.PokemonID
-                            where t.TrainerID == 77 && t.Team == true
+                            where t.TrainerID == trainerID && t.Team == true
                             select new { t.PokemonID, p.Name, p.Attack, p.Defence, p.SpecialAttack, p.SpecialDefence, p.Speed, p.Image }).ToList();
 
                 dataGridView1.DataSource = result;
 
                 var result2 = (from t in context.TrainerPokemons
-                                            join p in context.Pokemons on t.PokemonID equals p.PokemonID
-                                            where t.TrainerID == 77 && t.Team == false
-                                            select new { t.PokemonID, p.Name, p.Attack, p.Defence, p.SpecialAttack, p.SpecialDefence, p.Speed, p.Image }).ToList();
+                               join p in context.Pokemons on t.PokemonID equals p.PokemonID
+                               where t.TrainerID == trainerID && t.Team == false
+                               select new { t.PokemonID, p.Name, p.Attack, p.Defence, p.SpecialAttack, p.SpecialDefence, p.Speed, p.Image }).ToList();
 
                 dataGridView2.DataSource = result2;
 
